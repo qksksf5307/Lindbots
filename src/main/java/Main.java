@@ -1,3 +1,5 @@
+import Filter.FilterMessage;
+import Filter.FilterOnOff;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import net.dv8tion.jda.api.*;
 import javax.security.auth.login.LoginException;
@@ -12,7 +14,10 @@ public class Main{
 
         jda.addEventListener(new Calculate()); //계산기를 실행시켜줌
 
-        jda.addEventListener(new Filterring()); //욕설 필터링
+        jda.addEventListener(new Filterring());//욕설 필터링
+
         jda.addEventListener(new FilterOnOff()); //켜고 끄기
+
+        jda.addEventListener(new FilterMessage());
     }
 }

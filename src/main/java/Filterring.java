@@ -1,6 +1,9 @@
+import Filter.FilterOnOff;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+
+import static Filter.FilterMessage.allowed;
 
 public class Filterring extends ListenerAdapter {
 
@@ -13,7 +16,9 @@ public class Filterring extends ListenerAdapter {
                 for (int b = 0; b < LIST_OF_BAD_WORD.length; b++) {
                     if (msg[i].equalsIgnoreCase(LIST_OF_BAD_WORD[b])) {
                         event.getMessage().delete().queue();
-                        event.getChannel().sendMessage("욕한새끼 누구냐? ").queue();
+                        if(allowed == true ) {
+                            event.getChannel().sendMessage("욕한새끼 누구냐? ").queue();
+                        }
                     }
                 }
             }
