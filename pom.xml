@@ -25,13 +25,7 @@
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <id>jcenter</id>
-            <name>jcenter-bintray</name>
-            <url>https://jcenter.bintray.com</url>
-        </repository>
-    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>net.dv8tion</groupId>
@@ -39,15 +33,15 @@
             <version>5.0.0-alpha.12</version>
         </dependency>
         <dependency>
-            <groupId>net.callumtaylor.asynchttp</groupId>
-            <artifactId>asynchttpclient</artifactId>
-            <version>1.5</version>
-        </dependency>
-        <dependency>
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
             <version>1.4.9</version>
         </dependency>
+        <dependency>
+           <groupId>org.apache.httpcomponents</groupId>
+           <artifactId>httpclient</artifactId>
+           <version>4.5.13</version>
+    </dependency>
     </dependencies>
 
 </project>

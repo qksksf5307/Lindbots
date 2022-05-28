@@ -17,7 +17,7 @@ public class Filterring extends ListenerAdapter {
                     if (msg[i].equalsIgnoreCase(LIST_OF_BAD_WORD[b])) {
                         event.getMessage().delete().queue();
                         if(allowed == true ) {
-                            event.getChannel().sendMessage("욕한새끼 누구냐? ").queue();
+                            event.getChannel().sendMessage("욕한새끼 누구냐? "+event.getMember().getUser().getName()).queue();
                         }
                     }
                 }

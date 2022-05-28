@@ -1,3 +1,4 @@
+import Api.AnimalApi;
 import Filter.FilterMessage;
 import Filter.FilterOnOff;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -19,5 +20,7 @@ public class Main{
         jda.addEventListener(new FilterOnOff()); //켜고 끄기
 
         jda.addEventListener(new FilterMessage());
+
+        jda.addEventListener(new AnimalApi());
     }
 }
