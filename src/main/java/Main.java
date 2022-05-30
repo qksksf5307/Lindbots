@@ -1,6 +1,8 @@
-import Api.AnimalApi;
+import Api.MonsterHunterApi;
+import Api.PokemonApi;
 import Filter.FilterMessage;
 import Filter.FilterOnOff;
+import RiotStat.RiotLOL;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import net.dv8tion.jda.api.*;
 import javax.security.auth.login.LoginException;
@@ -21,6 +23,8 @@ public class Main{
 
         jda.addEventListener(new FilterMessage());
 
-        jda.addEventListener(new AnimalApi());
+        jda.addEventListener(new PokemonApi());
+
+        jda.addEventListener(new MonsterHunterApi()); //개발중
     }
 }
