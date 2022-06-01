@@ -1,3 +1,4 @@
+import Api.CytusInfo;
 import Api.MonsterHunterApi;
 import Api.PokemonApi;
 import Filter.FilterMessage;
@@ -26,5 +27,7 @@ public class Main{
         jda.addEventListener(new PokemonApi());
 
         jda.addEventListener(new MonsterHunterApi()); //개발중
+
+        jda.addEventListener(new CytusInfo());
     }
 }
