@@ -39,8 +39,7 @@ public class CytusInfo extends ListenerAdapter {
         Map<String, Object> map = new HashMap();
 
 
-
-        if (msg[0].equalsIgnoreCase("!Cytus")) {
+        if (msg[0].equalsIgnoreCase("!Cytus") && msg.length >= 2) {
             Connection conn = null;
             Statement state = null;
             try {
@@ -49,7 +48,7 @@ public class CytusInfo extends ListenerAdapter {
                 state = conn.createStatement();
 
                 String sql; //SQL문을 저장할 String
-                sql = "SELECT * FROM cytus where name = '" + msg[1]+"'";
+                sql = "SELECT * FROM cytus where name = '" + msg[1] + "'";
                 ResultSet rs = state.executeQuery(sql);
 
                 while (rs.next()) {
@@ -69,20 +68,21 @@ public class CytusInfo extends ListenerAdapter {
                     System.out.println(msg.length);
 
 
-                    eb.setAuthor("Cytus",songicon,songicon);
-                    eb.setTitle(name+" 곡 정보",songicon);
+                    eb.setAuthor("Cytus: " + chapter + " \n" + name + "      BPM:" + bpm, songicon, songicon);
+                    eb.setTitle(name + " 곡 정보", songicon);
                     eb.setColor(Color.CYAN);
-                    eb.addField("Easy난이도", String.valueOf(easy),true);
-                    eb.addField("Hard난이도", String.valueOf(hard),true);
-                    eb.addField("작곡가",artist,true);
-                    eb.addField("easy노트수",String.valueOf(noteeasy),true);
-                    eb.addField("hard노트수",String.valueOf(notehard),true);
-                    eb.addField("playtime",playtime,true);
-                    eb.addField("BPM", String.valueOf(bpm),true);
-                    eb.addField("평가",analysis,true);
+                    eb.addField("Easy난이도", String.valueOf(easy), true);
+                    eb.addField("Hard난이도", String.valueOf(hard), true);
+                    eb.addField("작곡가", artist, true);
+                    eb.addField("Easy노트수", String.valueOf(noteeasy), true);
+                    eb.addField("Hard노트수", String.valueOf(notehard), true);
+                    eb.addField("곡 길이", playtime, true);
+                    eb.addField("평가", analysis, true);
+                    eb.setThumbnail(songicon);
                     eb.setImage(ilusturl);
-                    eb.setFooter(chapter,chaptericon);
+                    eb.setFooter(chapter, chaptericon);
 
+                    System.out.println(name);
                     tc.sendMessageEmbeds(eb.build()).queue();
                 }
 
